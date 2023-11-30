@@ -1,0 +1,17 @@
+name: Hello GitHub Actions
+
+on:
+  push:
+    branches:
+      - feature-branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Hello Action
+      run: echo "Hello from GitHub Actions on the feature branch!"

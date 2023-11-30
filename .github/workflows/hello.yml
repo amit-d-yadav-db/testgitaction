@@ -15,3 +15,29 @@ jobs:
 
     - name: Hello Action
       run: echo "Hello from GitHub Actions on the feature branch!"
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        ref: development
+
+    - name: Deploy to Development
+      run: echo "Deploying to the development environment"
+
+  deploy-production:
+    needs: deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      with:
+        ref: master
+
+    - name: Deploy to Production
+      run: echo "Deploying to the production environment"

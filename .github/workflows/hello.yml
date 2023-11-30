@@ -25,6 +25,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: development
+        fetch-depth: 0  # Fetch all history
 
     - name: Deploy to Development
       run: echo "Deploying to the development environment"
@@ -38,6 +39,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: master
+        fetch-depth: 0  # Fetch all history
 
     - name: Deploy to Production
       run: echo "Deploying to the production environment"
